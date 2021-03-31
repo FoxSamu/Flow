@@ -1,0 +1,89 @@
+/*
+ * Copyright 2021 Shadew
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+plugins {
+    id 'java'
+}
+
+group 'net.shadew'
+version '0.1'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.shadew.net/' }
+}
+
+configurations {
+    include
+    implementation.extendsFrom include
+
+    includeRuntime
+    include.extendsFrom includeRuntime
+
+    windows
+    runtimeOnly.extendsFrom windows
+    macos
+    runtimeOnly.extendsFrom macos
+    linux
+    runtimeOnly.extendsFrom linux
+}
+
+
+dependencies {
+    include 'org.lwjgl:lwjgl:3.2.3'
+    include 'org.lwjgl:lwjgl-opengl:3.2.3'
+    include 'org.lwjgl:lwjgl-glfw:3.2.3'
+    include 'org.lwjgl:lwjgl-jemalloc:3.2.3'
+    include 'org.lwjgl:lwjgl-stb:3.2.3'
+    include 'org.lwjgl:lwjgl-nfd:3.2.3'
+    include 'org.lwjgl:lwjgl-nanovg:3.2.3'
+    macos 'org.lwjgl:lwjgl:3.2.3:natives-macos'
+    macos 'org.lwjgl:lwjgl-opengl:3.2.3:natives-macos'
+    macos 'org.lwjgl:lwjgl-glfw:3.2.3:natives-macos'
+    macos 'org.lwjgl:lwjgl-jemalloc:3.2.3:natives-macos'
+    macos 'org.lwjgl:lwjgl-stb:3.2.3:natives-macos'
+    macos 'org.lwjgl:lwjgl-nfd:3.2.3:natives-macos'
+    macos 'org.lwjgl:lwjgl-nanovg:3.2.3:natives-macos'
+    windows 'org.lwjgl:lwjgl:3.2.3:natives-windows'
+    windows 'org.lwjgl:lwjgl-opengl:3.2.3:natives-windows'
+    windows 'org.lwjgl:lwjgl-glfw:3.2.3:natives-windows'
+    windows 'org.lwjgl:lwjgl-jemalloc:3.2.3:natives-windows'
+    windows 'org.lwjgl:lwjgl-stb:3.2.3:natives-windows'
+    windows 'org.lwjgl:lwjgl-nfd:3.2.3:natives-windows'
+    windows 'org.lwjgl:lwjgl-nanovg:3.2.3:natives-windows'
+    linux 'org.lwjgl:lwjgl:3.2.3:natives-linux'
+    linux 'org.lwjgl:lwjgl-opengl:3.2.3:natives-linux'
+    linux 'org.lwjgl:lwjgl-glfw:3.2.3:natives-linux'
+    linux 'org.lwjgl:lwjgl-jemalloc:3.2.3:natives-linux'
+    linux 'org.lwjgl:lwjgl-stb:3.2.3:natives-linux'
+    linux 'org.lwjgl:lwjgl-nfd:3.2.3:natives-linux'
+    linux 'org.lwjgl:lwjgl-nanovg:3.2.3:natives-linux'
+    include 'org.joml:joml:1.9.23'
+    include 'com.google.code.gson:gson:2.8.6'
+    include 'com.google.guava:guava:28.2-jre'
+    include 'net.shadew:shwutil:1.5.0'
+    include 'org.jcodec:jcodec:0.2.5'
+    include 'net.bramp.ffmpeg:ffmpeg:0.6.2'
+
+    include 'org.apache.logging.log4j:log4j-api:2.13.1'
+    include 'org.apache.logging.log4j:log4j-core:2.13.1'
+}
+
+test {
+    useJUnitPlatform()
+}
